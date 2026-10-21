@@ -1,0 +1,5 @@
+# Variaveis de ambiente
+.env
+
+# Docker
+*.log

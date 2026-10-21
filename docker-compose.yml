@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:17-alpine   # Versão fixa
+    container_name: calculo_st_postgres
+    restart: unless-stopped
+    env_file:
+      - .env                    # Carrega as variáveis do arquivo .env
+    ports:
+      - "5432:5432"             # No servidor, remova ou restrinja esta linha
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d   # Scripts de inicialização
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+    name: calculo_st_postgres_data
