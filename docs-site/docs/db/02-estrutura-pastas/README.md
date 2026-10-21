@@ -9,7 +9,9 @@ calculo-st/
   .env                  # Variaveis de ambiente (NAO versionado)
   .env.example          # Exemplo de variaveis
   .gitignore            # Arquivos ignorados
-  docker-compose.yml    # Container do Postgres
+  docker-compose.yml    # Container do Postgres (base — usado no local e no VPS)
+  docker-compose.override.yml               # (só local — o Docker Compose carrega automaticamente quando você roda docker compose up):
+  docker-compose.prod.yml (só VPS — você roda com docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d):
   db/
     init/               # Scripts SQL de bootstrap
       01-functions.sql
