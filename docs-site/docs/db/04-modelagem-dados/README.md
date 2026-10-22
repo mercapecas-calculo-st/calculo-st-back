@@ -8,7 +8,7 @@ title: Modelagem de Dados
 
 | Tabela | Descricao |
 |--------|-----------|
-| usuario | Credenciais (login e password_hash) |
+| usuarios | Credenciais (login, nome, password_hash) |
 | papel | Papeis (ADMIN, USUARIO) |
 | usuario_papel | Associacao N:N (chave composta) |
 | parametro_tributario | Parametros (MVA, aliquotas) |

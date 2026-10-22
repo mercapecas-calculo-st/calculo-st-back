@@ -6,16 +6,18 @@ title: Ambiente
 
 O arquivo ``.env`` na raiz do projeto e lido pelo ``docker-compose.yml``.
 
-## Conteudo do .env
+## Conteudo 
 
-```env
-POSTGRES_USER=admin
-POSTGRES_PASSWORD=9709@db
-POSTGRES_DB=calculo_st_db
+crie o .env baseado no .env.exemple e substitua o campo de senha por uma senha de sua escolha. 
+
+```.env.exemple
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=digitar_senha
+POSTGRES_DB=db_calc_st
 ```
 
 ## Nota Importante
 
-> O usuario do banco (admin) e diferente do usuario do sistema
-> (administrador criado no seed).
+> O usuario do banco (admin) é diferente do usuario do sistema
+> O usuário administrador do sistema é criado no seed como "administrador".
 

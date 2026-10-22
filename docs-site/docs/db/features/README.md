@@ -1,14 +1,23 @@
 ---
-title: Features
+title: Usuarios
+sidebar_position: 2
 ---
 
-# Documentacao por Feature
+# Feature: Usuarios
 
-| Feature | Descricao |
-|---------|-----------|
-| [Usuarios](usuarios/README.md) | Credenciais e autenticacao |
-| [Papeis](papeis/README.md) | Papeis de acesso |
-| [Usuario-Papel](usuario-papel/README.md) | Associacao N:N |
-| [Parametro Tributario](parametro-tributario/README.md) | Parametros de ST |
-| [NCM-ST](ncm-st/README.md) | NCMs e regras de ST |
+Armazena as credenciais dos usuários do sistema.
 
+## Tabela usuarios
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| id | UUID | Chave primária |
+| login | VARCHAR(255) | Login único (UNIQUE) |
+| nome | VARCHAR(255) | Nome do usuário |
+| password_hash | VARCHAR(255) | Hash da senha |
+| created_at | TIMESTAMPTZ | Data de criação |
+| updated_at | TIMESTAMPTZ | Data de atualização |
+
+## Script SQL
+
+`db/init/02-tables-usuarios.sql`
