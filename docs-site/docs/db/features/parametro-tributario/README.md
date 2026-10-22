@@ -12,8 +12,8 @@ Cada parâmetro é identificado por um nome único e possui um valor percentual.
 | Coluna | Tipo | Descrição |
 |--------|------|-----------|
 | id | UUID | Chave primária |
-| nome | VARCHAR(50) | Nome único do parâmetro (UNIQUE) |
-| percentual | NUMERIC(7,4) | Valor percentual |
+| nome | VARCHAR(100) | Nome único do parâmetro (UNIQUE) |
+| percentual | NUMERIC(5,2) | Valor percentual |
 | created_at | TIMESTAMPTZ | Data de criação |
 | updated_at | TIMESTAMPTZ | Data de atualização |
 

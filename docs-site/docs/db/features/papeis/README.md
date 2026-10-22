@@ -6,7 +6,7 @@ title: Papeis
 
 Armazena os papeis (roles) do sistema.
 
-## Tabela papel
+## Tabela papeis
 
 | Coluna | Tipo | Descricao |
 |--------|------|-----------|
