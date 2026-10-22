@@ -1,0 +1,19 @@
+# Perfil 'local': carregado quando SPRING_PROFILES_ACTIVE=local.
+# Em produção (Nginx na mesma origem), este arquivo NÃO é carregado.
+
+spring:
+  jpa:
+    show-sql: true
+
+logging:
+  level:
+    br.com.mercapecas.calculost: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
+
+# CORS liberado apenas para o Next.js em desenvolvimento.
+# Em produção não há CORS porque o Nginx serve front e API na mesma origem.
+app:
+  cors:
+    allowed-origins:
+      - http://localhost:3000

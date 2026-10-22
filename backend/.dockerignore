@@ -1,0 +1,14 @@
+# Saída de build (o Docker compila de novo, não precisa do artefato local)
+target/
+
+# Histórico e configuração do Git
+.git/
+.gitignore
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+
+# Sistema operacional
+.DS_Store
