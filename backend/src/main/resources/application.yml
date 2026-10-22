@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: calculo-st-backend
+
+  datasource:
+    # O hostname 'postgres' é o nome do serviço no docker-compose.yml.
+    # A rede interna do Docker resolve esse nome para o container correto.
+    url: jdbc:postgresql://${POSTGRES_HOST:postgres}:5432/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 30000
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      # 'validate' garante que as entidades JPA batem com as tabelas do banco,
+      # mas NÃO altera o schema (quem altera é o Flyway).
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: false
+
+  flyway:
+    enabled: true
+    # baseline-on-migrate=true faz com que o schema já existente (criado pelo
+    # db/init) seja marcado como versão 1. As próximas migrations começam em V2.
+    baseline-on-migrate: true
+    baseline-version: 1
+    locations: classpath:db/migration
+
+management:
+  endpoints:
+    web:
+      exposure:
+        # Apenas 'health' é exposto publicamente (Docker HEALTHCHECK e Nginx).
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+    br.com.mercapecas.calculost: INFO
+    org.flywaydb: INFO
